@@ -102,7 +102,7 @@ export function txStatus(deposit: Deposit, now: number): TxRowStatus {
 
 function amountText(currency: TxCurrency, amount: number) {
   const value = Number(amount || 0).toFixed(2);
-  return currency === 'USDT' ? `${value} USDT` : `\u20b9 ${value}`;
+  return `\u20b9 ${value}`;
 }
 
 function iconStyle(art: Blueprint): CSSProperties {

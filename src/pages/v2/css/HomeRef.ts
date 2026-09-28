@@ -56,11 +56,11 @@ export const css = `
     .balance-value { position: absolute; left: 12.2%; top: 31.5%; color: #fff; font-size: 46px; font-size: 11.9cqw; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
     .detail-button { position: absolute; left: 63.55%; top: 62.65%; width: 30.8%; height: 23%; border-radius: 999px; opacity: 0; background: transparent; }
     .balance-card:has(.detail-button:focus-visible) { outline: 3px solid #2469dc; outline-offset: 4px; }
-    .stats-card { aspect-ratio: 516 / 110; background: #079b63; }
-    .stats-card > img { width: 124.031008%; left: -12.015504%; top: -240.909091%; }
-    .stat-value { position: absolute; top: 58%; color: #fff; font-weight: 700; font-variant-numeric: tabular-nums; font-size: 20px; font-size: 5.3cqw; line-height: 1.2; }
-    .deposit-value { left: 25.6%; }
-    .withdrawal-value { left: 78%; }
+    .stats-card { aspect-ratio: 516 / 110; background: linear-gradient(135deg,#0a9a5c,#12a978); display:flex; align-items:stretch; }
+    .stat-half { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding-bottom:6px; color:#fff; }
+    .stat-label { font-size:16px; font-size:4.4cqw; font-weight:500; line-height:1.2; }
+    .stat-value { font-weight:700; font-variant-numeric:tabular-nums; font-size:20px; font-size:5.3cqw; line-height:1.2; }
+    .stat-divider { width:1px; align-self:center; height:56%; background:rgba(255,255,255,.35); }
     .actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0 0 1px; }
     .action-button { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 9px; font-size: 17px; font-weight: 700; line-height: 1.4; }
     .action-icon { position: relative; display: grid; place-items: center; width: 64px; height: 58px; border-radius: var(--radius); background: #edfbf6; box-shadow: 0 7px 18px rgba(36,75,62,.04); color: #4b514f; }
@@ -68,22 +68,9 @@ export const css = `
     .usdt-badge { position: absolute; left: 0; top: -6px; z-index: 1; padding: 2px 6px 3px; border-radius: 20px; background: linear-gradient(110deg,#1fc65b,#10a34d); color: #fff; box-shadow: 0 4px 9px #10a34d26; font-size: 10px; font-weight: 700; line-height: 1.3; white-space: nowrap; }
     .rewards-card { display: block; aspect-ratio: 530 / 157; background: #d6dee8; text-align: left; }
     .rewards-card > img { width: 120.754717%; left: -10.377358%; top: -161.146497%; image-rendering:auto; }
-    .leaderboard { padding:16px 12px 12px;border-radius:var(--radius);background:#fff;box-shadow:0 7px 18px rgba(38,62,87,.05);overflow:hidden; }
-    .leaderboard h2 { font-size:18px;line-height:1.3;font-weight:700;color:#142342; }
-    .leaderboard-head { display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px; }
-    .leaderboard-head>strong { color:#1473e6;font-size:17px; }
-    .leaderboard-time { padding:9px 10px;border-radius:12px;background:#f4f7ff;color:#52617a;font-size:12px;white-space:nowrap; }
-    .leaderboard-time b,.leaderboard-reset { color:#2679db; }
-    .leaderboard>p { margin-top:7px;color:#9ca6b5;font-size:12px; }
-    .leaderboard .leaderboard-reset { margin-top:9px; }
-    .leaderboard-podium { display:grid;grid-template-columns:repeat(3,1fr);align-items:end;margin-top:18px;border-bottom:2px solid #f4c316; }
-    .leaderboard-podium>div { min-width:0;padding:8px 3px 10px;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px; }
-    .leaderboard-podium .winner { padding-top:0;background:linear-gradient(180deg,transparent,#fff7c7); }
     .rank { width:26px;height:26px;display:grid;place-items:center;border-radius:50%;color:#fff;font-style:normal; }
     .silver{background:#cfd7e2}.gold{background:#ffc720}.bronze{background:#e99a59}
     .rank-avatar { width:40px;height:40px;display:grid;place-items:center;border:2px solid #d5dce7;border-radius:50%;background:#edf1f5;color:#475569;font-weight:700; }
-    .leaderboard-podium strong { font-size:13px; }.leaderboard-podium em { min-width:62px;padding:6px;border-radius:9px;background:#eef2f7;text-align:center;font-style:normal;font-weight:700; }
-    .leaderboard-podium .winner em{background:#ffc718}.leaderboard-row{display:grid;grid-template-columns:30px 1fr auto 64px;align-items:center;gap:8px;padding:8px;border-bottom:1px solid #edf0f3;font-size:12px}.leaderboard-row>b{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#f1f5f9}.leaderboard-row em{padding:6px;border-radius:8px;background:#eaf9f0;color:#12965d;text-align:center;font-style:normal;font-weight:700}.your-rank{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px;border:1px solid #d8e6f8;border-radius:10px;background:#f6f9ff;font-size:12px}.your-rank>b{color:#2679db;margin-right:8px}.your-rank strong{font-size:15px;color:#142342}
     .transactions { border-radius: var(--radius); background: #fff; padding: 14px 14px 20px; box-shadow: 0 10px 24px rgba(38,62,87,.06); }
     .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .section-heading h2 { font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -.25px; }
