@@ -102,6 +102,7 @@ export const css = `
     .notice-dialog { width: calc(100% - 40px); max-width: 430px; max-height: calc(100dvh - 40px); padding: 20px 12px 16px; overflow: hidden; }
     .notice-dialog[open] { display: flex; flex-direction: column; gap: 14px; }
     .notice-dialog #notice-title:not(.sr-only) { flex-shrink: 0; margin: 0 42px 4px 4px; font-size: 22px; font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+    .notice-dialog #notice-title:focus { outline: none; }
     .notice-dialog .dialog-close { top: 10px; right: 10px; width: 36px; height: 36px; }
     .notice-image { flex: 1 1 auto; width: 100%; min-height: 0; height: auto; object-fit: contain; object-position: center; border-radius: var(--radius); }
     .notice-body-text { flex-shrink: 0; margin: -4px 6px 0; color: #33413b; font-size: 14px; font-weight: 400; line-height: 1.5; text-align: center; }
