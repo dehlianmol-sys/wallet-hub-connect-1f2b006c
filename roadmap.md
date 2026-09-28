@@ -33,3 +33,7 @@
 - [x] Unify every user/admin loading state with the reference sign-in overlay.
 - [x] Match Home layout, rewards, leaderboard, and transactions to the supplied app screenshots.
 - [x] Prevent partially rendered images and verify mobile behavior.
+- [x] Match the loading and signed-in overlays to the supplied references.
+- [x] Pre-cache Home and Payment while the one-time root splash is visible.
+- [x] Restore the full-screen notice banner layout.
+- [x] Verify smooth Payment/Home navigation without replaying the splash.

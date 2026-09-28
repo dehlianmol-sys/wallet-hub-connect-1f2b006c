@@ -60,3 +60,17 @@ export function preloadCriticalImages(): Promise<void> {
   critical.then(() => { void preloadAppImages(); }).catch(() => undefined);
   return critical;
 }
+
+let shellWarmup: Promise<void> | null = null;
+
+/** Warms the two most-used screen modules and static artwork once per app load. */
+export function preloadAppShell(): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve();
+  if (shellWarmup) return shellWarmup;
+  shellWarmup = Promise.all([
+    preloadCriticalImages(),
+    import('@/pages/v2/HomeV2'),
+    import('@/pages/v2/PaymentClaimsV2'),
+  ]).then(() => undefined);
+  return shellWarmup;
+}

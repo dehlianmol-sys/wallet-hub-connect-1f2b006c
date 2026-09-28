@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { StoreProvider } from '@/lib/store';
@@ -15,6 +15,10 @@ import { ToastProvider } from "../lib/toast";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { captureRefFromUrl } from "../lib/referral";
 import { openExternalUrl } from "../lib/nativeBridge";
+import { isInstallHost } from "../lib/brand";
+import AppSplash from "../components/AppSplash";
+
+let launchSplashCompleted = false;
 
 /**
  * Any unknown URL (old website links, /register variants, typos) goes straight
@@ -122,6 +126,14 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
+  const [showLaunchSplash, setShowLaunchSplash] = useState(
+    () => !launchSplashCompleted && !isInstallHost(),
+  );
+
+  const finishLaunchSplash = useCallback(() => {
+    launchSplashCompleted = true;
+    setShowLaunchSplash(false);
+  }, []);
 
   // Capture ?ref=CODE on ANY page and keep it on the device so the referral
   // survives the SMS/OTP registration steps.
@@ -163,6 +175,7 @@ function RootComponent() {
         <StoreProvider>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
+          {showLaunchSplash && <AppSplash onFinish={finishLaunchSplash} />}
         </StoreProvider>
       </ToastProvider>
     </QueryClientProvider>

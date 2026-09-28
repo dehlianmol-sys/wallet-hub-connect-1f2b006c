@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { APP_LOGO, APP_LOGO_FALLBACK } from '@/lib/brand';
-import { preloadCriticalImages } from '@/lib/preload';
+import { preloadAppShell } from '@/lib/preload';
 import CachedImage from '@/components/CachedImage';
 const WAVE_IMG_URL = '/ui/loading-wave.png';
 
@@ -75,8 +75,8 @@ const DECORATIONS: Array<{ cls?: string; style: Record<string, string> }> = [
 ];
 
 /** Brief branded intro on a cold launch; app data continues loading in parallel. */
-const SPLASH_DURATION = 700;
-const REVEAL_DURATION = 700;
+const SPLASH_DURATION = 1750;
+const REVEAL_DURATION = 1750;
 /** Total time of the full intro (spinner splash + onboarding reveal). */
 export const SPLASH_TOTAL_DURATION = SPLASH_DURATION + REVEAL_DURATION;
 
@@ -88,8 +88,9 @@ export default function AppSplash({ onFinish }: { onFinish?: () => void }) {
     const t1 = window.setTimeout(() => setPhase('revealing'), SPLASH_DURATION);
     const t2 = window.setTimeout(() => setPhase('ready'), SPLASH_DURATION + REVEAL_DURATION);
 
-    // Warm images independently. Slow downloads must never hold the splash open.
-    void preloadCriticalImages().catch(() => undefined);
+    // Warm the two main screens and their artwork while the intro is visible.
+    // Slow downloads never hold the splash open beyond the fixed duration.
+    void preloadAppShell().catch(() => undefined);
     const finishTimer = window.setTimeout(() => {
       if (alive && onFinish) onFinish();
     }, SPLASH_TOTAL_DURATION);
