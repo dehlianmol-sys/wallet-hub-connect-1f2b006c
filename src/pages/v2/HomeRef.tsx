@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import newcomerRewardsImg from '@/assets/newcomer-rewards-2x.png';
 import { css } from './css/HomeRef';
 
 export default function HomeRef({ transactions }: { transactions?: ReactNode }) {
@@ -187,7 +188,7 @@ export default function HomeRef({ transactions }: { transactions?: ReactNode }) 
             </button>
           </section>
           <button className="image-card rewards-card" id="newcomer-rewards" type="button" aria-label="Newcomer rewards, not started. Multi-Day Task. View reward requirements.">
-            <img src="https://i.ibb.co/VcfHLwhv/Picsart-26-09-14-16-18-46-405.png" fetchPriority="high" alt="Newcomer rewards. Not started. You need to complete at least one order to start." width="640" height="640" draggable={false} />
+            <img src={newcomerRewardsImg} fetchPriority="high" alt="Newcomer rewards. Not started. You need to complete at least one order to start." width="640" height="640" draggable={false} />
           </button>
           <section className="transactions" id="transactions" aria-labelledby="transactions-title">
             <div className="section-heading">
