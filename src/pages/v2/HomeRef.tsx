@@ -133,9 +133,9 @@ export default function HomeRef({ transactions }: { transactions?: ReactNode }) 
             <button className="detail-button" type="button" data-action="transactions" aria-label="Detail: view transaction history" />
           </section>
           <section className="image-card stats-card" aria-label="Deposit: 0 Indian rupees. Withdrawal: 0 Indian rupees.">
-            <div className="stat-half"><span className="stat-label">Deposit</span><span className="stat-value">₹ 0</span></div>
+            <div className="stat-half"><span className="stat-label">Deposit</span><span className="stat-value deposit-value">₹ 0</span></div>
             <span className="stat-divider" aria-hidden="true" />
-            <div className="stat-half"><span className="stat-label">Withdrawal</span><span className="stat-value">₹ 0</span></div>
+            <div className="stat-half"><span className="stat-label">Withdrawal</span><span className="stat-value withdrawal-value">₹ 0</span></div>
           </section>
           <section className="actions" aria-label="Quick actions">
             <button className="action-button" type="button" data-action="usdt">
