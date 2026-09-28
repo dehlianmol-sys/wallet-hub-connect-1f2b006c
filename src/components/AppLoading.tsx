@@ -5,12 +5,12 @@ type AppLoadingProps = {
 
 const css = `
 .skypay-loading-layer{position:fixed;inset:0;z-index:120;display:grid;place-items:center;pointer-events:none;background:transparent;font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-.skypay-loading-box{width:140px;height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:8px;background:rgb(40 40 40 / 82%);color:#fff;font-size:17px;font-weight:400;line-height:1;box-shadow:0 8px 24px rgb(0 0 0 / 16%);animation:skypay-loader-in .18s ease-out both}
-.skypay-loading-spinner{width:38px;height:38px;border:3px solid rgb(255 255 255 / 30%);border-top-color:#fff;border-radius:50%;animation:skypay-loader-spin .8s linear infinite}
-.skypay-loading-check{width:72px;height:54px;fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.skypay-loading-box{width:128px;height:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-radius:12px;background:rgb(64 64 64 / 95%);color:#fff;font-size:16px;font-weight:400;line-height:1}
+.skypay-loading-spinner{width:36px;height:36px;border:2px solid rgb(255 255 255 / 25%);border-top-color:#fff;border-radius:50%;animation:skypay-loader-spin .8s linear infinite}
+.skypay-loading-check{width:44px;height:34px;fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
 @keyframes skypay-loader-spin{to{transform:rotate(360deg)}}
 @keyframes skypay-loader-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.skypay-loading-box{animation:none}.skypay-loading-spinner{animation-duration:1.6s}}
+@media(prefers-reduced-motion:reduce){.skypay-loading-box{width:128px;height:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-radius:12px;background:rgb(64 64 64 / 95%);color:#fff;font-size:16px;font-weight:400;line-height:1}.skypay-loading-spinner{animation-duration:1.6s}}
 `;
 
 /** One loading/status treatment shared by user, authentication, and admin screens. */

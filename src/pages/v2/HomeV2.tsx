@@ -38,8 +38,8 @@ export default function HomeV2() {
     const mine = deposits.filter((d) => d.userId === currentUser?.id && d.status === 'Success');
     const totalDeposit = mine.reduce((sum, d) => sum + d.amount, 0);
     setText(root, '.balance-value', String(Math.round(currentUser?.wallet ?? 0)));
-    setText(root, '.deposit-value', String(Math.round(totalDeposit)));
-      setText(root, '.withdrawal-value', '0');
+    setText(root, '.deposit-value', `₹ ${Math.round(totalDeposit)}`);
+      setText(root, '.withdrawal-value', '₹ 0');
   }, [currentUser, deposits, userId]);
 
   // Promotion carousel fed by the banners the admin uploads
