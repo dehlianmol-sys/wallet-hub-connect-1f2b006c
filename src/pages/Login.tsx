@@ -3,12 +3,11 @@ import { Link, useNavigate } from '@/lib/router-compat';
 import { useStore } from '@/lib/store';
 import { useToast } from '@/lib/toast';
 import { APP_LOGO, APP_LOGO_FALLBACK } from '@/lib/brand';
-import AppSplash from '@/components/AppSplash';
 import CachedImage from '@/components/CachedImage';
 import AuthHints, { phoneRules, passwordRules, isInvalid } from '@/components/AuthHints';
 import AppLoading from '@/components/AppLoading';
 
-export default function Login({ showSplash = false }: { showSplash?: boolean }) {
+export default function Login() {
   const { login } = useStore();
   const navigate = useNavigate();
   const toast = useToast();
@@ -19,13 +18,6 @@ export default function Login({ showSplash = false }: { showSplash?: boolean }) 
   const [loading, setLoading] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
   const [error, setError] = useState('');
-  const [splash, setSplash] = useState(showSplash);
-
-  useEffect(() => {
-    if (!showSplash) return;
-    const timer = window.setTimeout(() => setSplash(false), 1500);
-    return () => window.clearTimeout(timer);
-  }, [showSplash]);
 
   const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,8 +41,6 @@ export default function Login({ showSplash = false }: { showSplash?: boolean }) 
   };
 
   useEffect(() => { if (error) toast(error, 'error'); }, [error]);
-
-  if (splash) return <AppSplash />;
 
   return (
     <main className="hk-auth hk-login-page">

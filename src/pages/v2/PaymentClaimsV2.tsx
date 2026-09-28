@@ -59,7 +59,7 @@ function buildClaims(filter: FilterKey, rewardPct: number, min: number, max: num
 /** Payment claims screen — supplied design wired to the live account. */
 export default function PaymentClaimsV2() {
   const navigate = useNavigate();
-  const { currentUser, deposits, appSettings, createDepositIntent, refreshData } = useStore();
+  const { currentUser, deposits, appSettings, createDepositIntent } = useStore();
   const { hasPin, loading: pinLoading } = useWalletPin(currentUser?.id);
 
   const [filter, setFilter] = useState<FilterKey>('top');
@@ -95,20 +95,12 @@ export default function PaymentClaimsV2() {
   const reward = mine.filter((d) => d.status === 'Success').reduce((s, d) => s + (d.reward || 0), 0);
   const pending = mine.filter((d) => isOrderPending(d, now)).reduce((s, d) => s + d.amount, 0);
 
+  // Expiry state only needs a quiet periodic check. The central store already
+  // owns focus, resume, realtime, and request de-duplication.
   useEffect(() => {
-    const tick = () => {
-      setNow(Date.now());
-      void refreshData();
-    };
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    window.addEventListener('focus', tick);
-    window.addEventListener('pageshow', tick);
-    return () => {
-      window.clearInterval(timer);
-      window.removeEventListener('focus', tick);
-      window.removeEventListener('pageshow', tick);
-    };
-  }, [refreshData]);
+    const timer = window.setInterval(() => setNow(Date.now()), 15_000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const showToast = (message: string) => {
     if (toastTimer.current) clearTimeout(toastTimer.current);

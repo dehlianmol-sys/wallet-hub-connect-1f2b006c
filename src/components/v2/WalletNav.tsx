@@ -1,4 +1,4 @@
-import { useNavigate } from '@/lib/router-compat';
+import { Link, useNavigate } from '@/lib/router-compat';
 import { css } from '@/pages/v2/css/NavRef';
 
 export type NavKey = 'home' | 'payment' | 'statistics' | 'my';
@@ -13,10 +13,6 @@ const links: Array<{ key: NavKey; to: string; label: string; icon: string }> = [
 /** The single bottom navigation used across every signed-in screen. */
 export default function WalletNav({ active }: { active?: NavKey }) {
   const navigate = useNavigate();
-  const go = (to: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate(to);
-  };
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: css }} />
@@ -52,17 +48,16 @@ export default function WalletNav({ active }: { active?: NavKey }) {
       <nav className="bottom-nav" id="wallet-navigation" aria-label="Main navigation">
         <div className="nav-items">
           {links.slice(0, 2).map((l) => (
-            <a
+            <Link
               key={l.key}
               className="nav-item"
-              href={l.to}
+              to={l.to}
               data-page={l.key}
-              onClick={go(l.to)}
               {...(active === l.key ? { 'aria-current': 'page' as const } : {})}
             >
               <svg aria-hidden="true" focusable="false"><use href={l.icon} /></svg>
               <span>{l.label}</span>
-            </a>
+            </Link>
           ))}
           <button
             className="wallet-link"
@@ -76,17 +71,16 @@ export default function WalletNav({ active }: { active?: NavKey }) {
             </span>
           </button>
           {links.slice(2).map((l) => (
-            <a
+            <Link
               key={l.key}
               className="nav-item"
-              href={l.to}
+              to={l.to}
               data-page={l.key}
-              onClick={go(l.to)}
               {...(active === l.key ? { 'aria-current': 'page' as const } : {})}
             >
               <svg aria-hidden="true" focusable="false"><use href={l.icon} /></svg>
               <span>{l.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </nav>

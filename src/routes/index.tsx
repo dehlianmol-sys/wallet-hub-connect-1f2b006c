@@ -1,12 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
-
 import Home from "@/pages/v2/HomeV2";
 import Login from "@/pages/Login";
 import Landing from "@/pages/Landing";
 import { isInstallHost } from "@/lib/brand";
 import { captureRefFromUrl } from "@/lib/referral";
-import AppSplash from "@/components/AppSplash";
 import UserLayout from "@/components/UserLayout";
 import { Navigate } from "@/lib/router-compat";
 import { useStore } from "@/lib/store";
@@ -44,28 +41,8 @@ function RootEntry() {
   return <AppEntry />;
 }
 
-// Splash shows only once per app open; returning to Home never replays it.
-let startupSplashDone = false;
-
 function AppEntry() {
   const { currentUser, loading } = useStore();
-  const [startupSplash, setStartupSplash] = useState(!startupSplashDone);
-  const [timeDone, setTimeDone] = useState(false);
-
-  const finishSplash = useCallback(() => {
-    setTimeDone(true);
-  }, []);
-
-  useEffect(() => {
-    if (startupSplash && timeDone && !loading) {
-      startupSplashDone = true;
-      setStartupSplash(false);
-    }
-  }, [startupSplash, timeDone, loading]);
-
-  if (startupSplash) return <AppSplash onFinish={finishSplash} />;
-
-  if (loading && !startupSplashDone) return <AppSplash />;
   if (loading) return null;
 
 
