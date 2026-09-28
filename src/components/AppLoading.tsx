@@ -9,8 +9,7 @@ const css = `
 .skypay-loading-spinner{width:36px;height:36px;border:2px solid rgb(255 255 255 / 25%);border-top-color:#fff;border-radius:50%;animation:skypay-loader-spin .8s linear infinite}
 .skypay-loading-check{width:44px;height:34px;fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
 @keyframes skypay-loader-spin{to{transform:rotate(360deg)}}
-@keyframes skypay-loader-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.skypay-loading-box{width:128px;height:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-radius:12px;background:rgb(64 64 64 / 95%);color:#fff;font-size:16px;font-weight:400;line-height:1}.skypay-loading-spinner{animation-duration:1.6s}}
+@media(prefers-reduced-motion:reduce){.skypay-loading-spinner{animation-duration:1.6s}}
 `;
 
 /** One loading/status treatment shared by user, authentication, and admin screens. */

@@ -9,7 +9,7 @@ import HomeTransactions from '@/components/v2/HomeTransactions';
 import type { Deposit } from '@/lib/types';
 import { preloadImages } from '@/lib/preload';
 
-const NOTICE_SEEN_KEY = 'hkwallet_notice_seen_v1';
+const NOTICE_SEEN_KEY = 'hkwallet_notice_seen_v2';
 
 /** Home screen — the uploaded design wired to the live account and banners. */
 export default function HomeV2() {
@@ -103,12 +103,6 @@ export default function HomeV2() {
     const title = root.querySelector<HTMLElement>('#notice-title');
     if (!dialog || !image || !next) return;
     image.decoding = 'async';
-    image.removeAttribute('width');
-    image.removeAttribute('height');
-    image.style.width = '100%';
-    image.style.height = 'auto';
-    image.style.maxHeight = '70vh';
-    image.style.objectFit = 'contain';
     list.slice(1).forEach((n) => { const i = new Image(); i.src = n.imageUrl; });
 
     let index = 0;
@@ -126,7 +120,7 @@ export default function HomeV2() {
         if (!textEl) {
           textEl = document.createElement('p');
           textEl.id = 'notice-body-text';
-          textEl.style.cssText = 'margin:10px 14px 0;font-size:14px;line-height:1.5;color:#33413b;';
+          textEl.className = 'notice-body-text';
           image.insertAdjacentElement('afterend', textEl);
         }
         textEl.hidden = false;
