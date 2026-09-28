@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 import { useNavigate } from '@/lib/router-compat';
 import { copyText, wireBack } from '@/lib/v2dom';
 import UsdtRef from './UsdtRef';
@@ -7,8 +8,8 @@ import { orderCode } from '@/lib/orderStatus';
 
 const RATE = 110.5;
 const CHAIN_ICONS = {
-  trc20: 'https://i.ibb.co/yB42zJcb/Picsart-26-09-14-17-45-04-471.png',
-  bep20: 'https://i.ibb.co/b541WkpL/Picsart-26-09-14-17-43-14-913.png',
+  trc20: REMOTE_IMAGES["https://i.ibb.co/yB42zJcb/Picsart-26-09-14-17-45-04-471.png"],
+  bep20: REMOTE_IMAGES["https://i.ibb.co/b541WkpL/Picsart-26-09-14-17-43-14-913.png"],
 } as const;
 
 /** USDT deposit screen — design as uploaded, no admin approval flow attached. */

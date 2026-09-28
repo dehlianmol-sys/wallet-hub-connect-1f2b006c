@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 import type { CSSProperties } from 'react';
 import type { Deposit } from '@/lib/types';
 import { isOrderExpired } from '@/lib/orderStatus';
@@ -18,7 +19,7 @@ interface Blueprint {
 
 /** The six supplied blueprints: one per currency and status (exact crop values). */
 const PROCESSING_ART: Blueprint = {
-  image: 'https://i.ibb.co/1tx898r5/file-00000000f2e482119bddeae40675f651.png',
+  image: REMOTE_IMAGES["https://i.ibb.co/1tx898r5/file-00000000f2e482119bddeae40675f651.png"],
   sourceWidth: 2004,
   sourceHeight: 785,
   x: 115,
@@ -27,7 +28,7 @@ const PROCESSING_ART: Blueprint = {
   height: 270,
 };
 const COMPLETED_ART: Blueprint = {
-  image: 'https://i.ibb.co/cc1Cx8p1/file-000000000f7c8208bf7b57ee068740d7.png',
+  image: REMOTE_IMAGES["https://i.ibb.co/cc1Cx8p1/file-000000000f7c8208bf7b57ee068740d7.png"],
   sourceWidth: 1774,
   sourceHeight: 887,
   x: 90,
@@ -36,7 +37,7 @@ const COMPLETED_ART: Blueprint = {
   height: 240,
 };
 const CLOSE_ART: Blueprint = {
-  image: 'https://i.ibb.co/PsvVCvd4/file-00000000a1548211bfaa38688fe95d75.png',
+  image: REMOTE_IMAGES["https://i.ibb.co/PsvVCvd4/file-00000000a1548211bfaa38688fe95d75.png"],
   sourceWidth: 1254,
   sourceHeight: 1254,
   x: 30,

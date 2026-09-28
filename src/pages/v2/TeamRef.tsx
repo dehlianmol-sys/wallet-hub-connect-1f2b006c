@@ -1,4 +1,5 @@
 import { css } from './css/TeamRef';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 
 export default function TeamRef() {
   return (
@@ -140,25 +141,25 @@ export default function TeamRef() {
             </h2>
             <div className="share-options">
               <button className="share-option" type="button" data-share="telegram" aria-label="Share on Telegram">
-                <img src="https://i.ibb.co/PvHmLqqq/image-search-1789392181763.png" alt="Telegram" style={{ width: "48px", height: "48px" }} />
+                <img src={REMOTE_IMAGES["https://i.ibb.co/PvHmLqqq/image-search-1789392181763.png"]} alt="Telegram" style={{ width: "48px", height: "48px" }} />
                 <span>
                   Telegram
                 </span>
               </button>
               <button className="share-option" type="button" data-share="facebook" aria-label="Share on Facebook">
-                <img src="https://i.ibb.co/yFrmc2Ny/image-search-1789392214390.jpg" alt="Facebook" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
+                <img src={REMOTE_IMAGES["https://i.ibb.co/yFrmc2Ny/image-search-1789392214390.jpg"]} alt="Facebook" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
                 <span>
                   Facebook
                 </span>
               </button>
               <button className="share-option" type="button" data-share="whatsapp" aria-label="Share on Whatsapp">
-                <img src="https://i.ibb.co/Q7VtT8d6/image-search-1789392262092.png" alt="Whatsapp" style={{ width: "48px", height: "48px" }} />
+                <img src={REMOTE_IMAGES["https://i.ibb.co/Q7VtT8d6/image-search-1789392262092.png"]} alt="Whatsapp" style={{ width: "48px", height: "48px" }} />
                 <span>
                   Whatsapp
                 </span>
               </button>
               <button className="share-option" type="button" data-share="copy" aria-label="Copy invitation link">
-                <img src="https://i.ibb.co/8DTm2Pj4/image-search-1789392354794.jpg" alt="Copy link" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
+                <img src={REMOTE_IMAGES["https://i.ibb.co/8DTm2Pj4/image-search-1789392354794.jpg"]} alt="Copy link" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
                 <span>
                   Copy link
                 </span>

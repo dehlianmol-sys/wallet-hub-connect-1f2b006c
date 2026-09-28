@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 
 export type TxType = 'purchase' | 'receive';
 export type TxStatus = 'pending' | 'succeed' | 'failed';
@@ -19,7 +20,7 @@ interface Template {
 export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
   purchase: {
     pending: {
-      url: 'https://i.ibb.co/TDqSzLnJ/file-00000000496881fa95f582a7400996b5.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/TDqSzLnJ/file-00000000496881fa95f582a7400996b5.png"],
       size: [640, 640],
       crop: [15, 223, 609, 179],
       amount: [100, 266],
@@ -30,7 +31,7 @@ export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
       copy: [285, 345, 45, 45],
     },
     succeed: {
-      url: 'https://i.ibb.co/QLt1N5f/file-000000006e6081f598a11427faf76463.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/QLt1N5f/file-000000006e6081f598a11427faf76463.png"],
       size: [640, 640],
       crop: [15, 223, 609, 177],
       amount: [100, 266],
@@ -41,7 +42,7 @@ export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
       copy: [285, 351, 43, 43],
     },
     failed: {
-      url: 'https://i.ibb.co/Sw2Lx2kL/file-000000009c808230a8192803a56359d3.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/Sw2Lx2kL/file-000000009c808230a8192803a56359d3.png"],
       size: [640, 360],
       crop: [19, 104, 603, 153],
       amount: [101, 138],
@@ -54,7 +55,7 @@ export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
   },
   receive: {
     pending: {
-      url: 'https://i.ibb.co/HfVB1SWG/file-00000000eb748230b0b7cfdf9c5d9ed3.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/HfVB1SWG/file-00000000eb748230b0b7cfdf9c5d9ed3.png"],
       size: [640, 640],
       crop: [20, 238, 599, 160],
       amount: [100, 284],
@@ -64,7 +65,7 @@ export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
       copy: [276, 344, 40, 40],
     },
     succeed: {
-      url: 'https://i.ibb.co/HTJYDSrw/file-0000000081848211a39add96617a6ecc.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/HTJYDSrw/file-0000000081848211a39add96617a6ecc.png"],
       size: [640, 640],
       crop: [18, 235, 606, 160],
       amount: [100, 279],
@@ -74,7 +75,7 @@ export const TEMPLATES: Record<TxType, Record<TxStatus, Template>> = {
       copy: [276, 338, 46, 46],
     },
     failed: {
-      url: 'https://i.ibb.co/9kz3J31x/file-0000000087f481f5af407d261b557cdd.png',
+      url: REMOTE_IMAGES["https://i.ibb.co/9kz3J31x/file-0000000087f481f5af407d261b557cdd.png"],
       size: [640, 640],
       crop: [22, 238, 597, 159],
       amount: [100, 283],
