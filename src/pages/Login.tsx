@@ -6,6 +6,7 @@ import { APP_LOGO, APP_LOGO_FALLBACK } from '@/lib/brand';
 import CachedImage from '@/components/CachedImage';
 import AuthHints, { phoneRules, passwordRules, isInvalid } from '@/components/AuthHints';
 import AppLoading from '@/components/AppLoading';
+import { showSignInSuccess } from '@/lib/authFeedback';
 
 export default function Login() {
   const { login } = useStore();
@@ -33,6 +34,7 @@ export default function Login() {
       const result = await login(digits, password);
       if (!result.ok || !result.user) return setError(result.message);
       setSignedIn(true);
+      showSignInSuccess();
       await new Promise((resolve) => window.setTimeout(resolve, 1000));
       navigate(result.user.role === 'user' ? '/' : '/admin');
     } finally {

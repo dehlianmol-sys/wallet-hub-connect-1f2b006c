@@ -1,3 +1,6 @@
+- [x] Make the splash logo appear immediately and rebalance the two splash phases.
+- [x] Keep the signed-in success treatment visible through the authentication redirect.
+- [x] Diagnose the Cloudflare/custom-domain status.
 # Roadmap
 
 - [x] Fix Order modal text flow and mobile back-control sizing.

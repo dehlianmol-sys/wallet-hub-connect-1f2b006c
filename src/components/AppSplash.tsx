@@ -75,8 +75,8 @@ const DECORATIONS: Array<{ cls?: string; style: Record<string, string> }> = [
 ];
 
 /** Brief branded intro on a cold launch; app data continues loading in parallel. */
-const SPLASH_DURATION = 1750;
-const REVEAL_DURATION = 1750;
+const SPLASH_DURATION = 1000;
+const REVEAL_DURATION = 2500;
 /** Total time of the full intro (spinner splash + onboarding reveal). */
 export const SPLASH_TOTAL_DURATION = SPLASH_DURATION + REVEAL_DURATION;
 
@@ -110,7 +110,7 @@ export default function AppSplash({ onFinish }: { onFinish?: () => void }) {
         <div className="splash-content">
           <div className="splash-orbit">
             <span className="spinner" aria-hidden="true" />
-            <CachedImage className="splash-logo" src={APP_LOGO} fallbackSrc={APP_LOGO_FALLBACK} cacheKey="app-logo-v2" alt="" draggable={false} />
+            <img className="splash-logo" src={APP_LOGO_FALLBACK} alt="" draggable={false} fetchPriority="high" />
           </div>
           <h1 className="splash-title">Skypay</h1>
         </div>
