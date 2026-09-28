@@ -1,4 +1,5 @@
 /** Tutorial list shown on /tutorial. Covers are preloaded at app start. */
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 export type Tutorial = {
   title: string;
   date: string;
