@@ -15,6 +15,8 @@ import { ToastProvider } from "../lib/toast";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { captureRefFromUrl } from "../lib/referral";
 import { openExternalUrl } from "../lib/nativeBridge";
+import AppLoading from "../components/AppLoading";
+import { SIGN_IN_SUCCESS_EVENT } from "../lib/authFeedback";
 import { isInstallHost } from "../lib/brand";
 import AppSplash from "../components/AppSplash";
 
@@ -129,6 +131,7 @@ function RootComponent() {
   const [showLaunchSplash, setShowLaunchSplash] = useState(
     () => !launchSplashCompleted && !isInstallHost(),
   );
+  const [showSignInSuccess, setShowSignInSuccess] = useState(false);
 
   const finishLaunchSplash = useCallback(() => {
     launchSplashCompleted = true;
@@ -143,6 +146,20 @@ function RootComponent() {
       captureRefFromUrl();
     });
   }, [router]);
+
+  useEffect(() => {
+    let timer: number | undefined;
+    const showSuccess = () => {
+      setShowSignInSuccess(true);
+      if (timer !== undefined) window.clearTimeout(timer);
+      timer = window.setTimeout(() => setShowSignInSuccess(false), 1000);
+    };
+    window.addEventListener(SIGN_IN_SUCCESS_EVENT, showSuccess);
+    return () => {
+      window.removeEventListener(SIGN_IN_SUCCESS_EVENT, showSuccess);
+      if (timer !== undefined) window.clearTimeout(timer);
+    };
+  }, []);
 
   // App-wide safety net: ANY link that points outside this site is handed to
   // the real browser (Chrome on Android) instead of opening a tab inside the
@@ -176,6 +193,7 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           {showLaunchSplash && <AppSplash onFinish={finishLaunchSplash} />}
+           {showSignInSuccess && <AppLoading label="Signed in" success />}
         </StoreProvider>
       </ToastProvider>
     </QueryClientProvider>
