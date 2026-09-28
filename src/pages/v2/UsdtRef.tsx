@@ -1,4 +1,5 @@
 import { css } from './css/UsdtRef';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 
 export default function UsdtRef() {
   return (
@@ -89,7 +90,7 @@ export default function UsdtRef() {
                   </legend>
                   <label className="chain-option">
                     <span className="chain-icon-frame">
-                      <img className="chain-icon" src="https://i.ibb.co/yB42zJcb/Picsart-26-09-14-17-45-04-471.png" alt="TRC20" width="27" height="27" />
+                      <img className="chain-icon" src={REMOTE_IMAGES["https://i.ibb.co/yB42zJcb/Picsart-26-09-14-17-45-04-471.png"]} alt="TRC20" width="27" height="27" />
                     </span>
                     <span className="chain-text">
                       <span className="chain-name">
@@ -103,7 +104,7 @@ export default function UsdtRef() {
                   </label>
                   <label className="chain-option">
                     <span className="chain-icon-frame">
-                      <img className="chain-icon" src="https://i.ibb.co/b541WkpL/Picsart-26-09-14-17-43-14-913.png" alt="BEP20" width="27" height="27" />
+                      <img className="chain-icon" src={REMOTE_IMAGES["https://i.ibb.co/b541WkpL/Picsart-26-09-14-17-43-14-913.png"]} alt="BEP20" width="27" height="27" />
                     </span>
                     <span className="chain-text">
                       <span className="chain-name">

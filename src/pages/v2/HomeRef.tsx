@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { REMOTE_IMAGES } from "@/lib/remoteImages";
 import newcomerRewardsImg from '@/assets/newcomer-rewards-2x.png';
 import { css } from './css/HomeRef';
 
@@ -127,14 +128,14 @@ export default function HomeRef({ transactions }: { transactions?: ReactNode }) 
             <div className="carousel-dots" aria-label="Choose a promotion" />
           </section>
           <section className="image-card balance-card" aria-label="Available balance: 77 Indian rupees">
-            <img src="https://i.ibb.co/hxbNq00C/Picsart-26-09-14-16-16-00-015.png" alt="Available Balance" width="640" height="640" draggable={false} />
+            <img src={REMOTE_IMAGES["https://i.ibb.co/hxbNq00C/Picsart-26-09-14-16-16-00-015.png"]} alt="Available Balance" width="640" height="640" draggable={false} />
             <span className="balance-value" aria-hidden="true">
               77
             </span>
             <button className="detail-button" type="button" data-action="transactions" aria-label="Detail: view transaction history" />
           </section>
           <section className="image-card stats-card" aria-label="Deposit: 0 Indian rupees. Withdrawal: 0 Indian rupees.">
-            <img src="https://i.ibb.co/d4Q6VFrf/Picsart-26-09-14-16-12-00-574.png" alt="Deposit and Withdrawal" width="640" height="640" draggable={false} />
+            <img src={REMOTE_IMAGES["https://i.ibb.co/d4Q6VFrf/Picsart-26-09-14-16-12-00-574.png"]} alt="Deposit and Withdrawal" width="640" height="640" draggable={false} />
             <span className="stat-value deposit-value" aria-hidden="true">
               0
             </span>
