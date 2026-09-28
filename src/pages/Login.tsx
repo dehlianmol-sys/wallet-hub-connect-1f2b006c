@@ -75,7 +75,6 @@ export default function Login() {
       </form>
       <span className="hk-version">v1.2.1</span>
        {loading && !signedIn && <AppLoading />}
-       {signedIn && <AppLoading label="Signed in" success />}
     </main>
   );
 }
